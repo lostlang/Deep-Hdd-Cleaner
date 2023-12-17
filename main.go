@@ -30,5 +30,5 @@ func main() {
 	fmt.Println("\rAllocating RAM... Done")
 
 	common.CleanHDD(hdd_size, freezeMem)
-	fmt.Println("Cleaning... Done")
+	fmt.Println("\nCleaning... Done")
 }
