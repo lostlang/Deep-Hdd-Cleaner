@@ -16,11 +16,20 @@ func parseValue(s string) (int, error) {
 
 	intVal, err := strconv.Atoi(sSplited[0])
 	if err != nil {
-		return 0, parseError
+		// HACK: Windows ???
+		intVal, err = strconv.Atoi(sSplited[0][1:])
+		if err != nil {
+			return 0, parseError
+		}
 	}
+
 	mesure, err := convertMesure(sSplited[1])
 	if err != nil {
-		return 0, parseError
+		// HACK: Windows ???
+		mesure, err = convertMesure(sSplited[1][0:1])
+		if err != nil {
+			return 0, parseError
+		}
 	}
 
 	return intVal * mesure, nil
